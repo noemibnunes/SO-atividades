@@ -12,10 +12,8 @@ public class CopiaArquivos {
 	private static final int LIMITE = 10; // quantidade de copias
 	private static final String EXTENSAO_ARQUIVO = ".txt";
 
-
 	public static void main(String[] args) {
 
-		long tempoInicio = System.currentTimeMillis();
 
 		try {
 			System.out.println("--- Iniciando a execução ---\n");
@@ -35,12 +33,12 @@ public class CopiaArquivos {
 			e.printStackTrace();
 		}
 
-		System.out.println(
-				"--- Execução concluída! --- \nTempo total de execução: " + (System.currentTimeMillis() - tempoInicio) + "ms");
 	}
 
 	public static void copiar(String arquivo) throws IOException {
 		
+		long tmInicio = System.currentTimeMillis();
+
 		for (int count = 1; count <= LIMITE; count++) {
 			long tempoInicio = System.currentTimeMillis();
 			String nomeArquivo = arquivo.replace(EXTENSAO_ARQUIVO, "");
@@ -60,10 +58,14 @@ public class CopiaArquivos {
 			
 			System.out.println(nomeArquivo + " : " + (System.currentTimeMillis() - tempoInicio) + "ms");
 			
+			long tmFinal = System.currentTimeMillis();
+			
 			if(count == 10) {
+				System.out.println(
+						"Tempo total de execução: " + (tmFinal - tmInicio) + "ms");
 				System.out.println("\n-----------------------------");
 			}
-
+			
 		}
 	}
 

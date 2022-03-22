@@ -12,8 +12,6 @@ public class CopiaArquivosThread {
 	private static final int LIMITE = 10; // quantidade de copias
 	private static final String EXTENSAO_ARQUIVO = ".txt";
 
-	static long tm = 0;
-
 	public static void main(String[] args) {
 
 		try {
@@ -68,7 +66,7 @@ public class CopiaArquivosThread {
 				}
 				long tempFinal = System.currentTimeMillis();
                 long dif = (tempFinal - tempInicial);
-                System.out.println(arquivo + " - Requisição " + ": " + String.format("%02d segundos  e %02d milisegundos", dif/60, dif%60));
+                System.out.println("\n"+ arquivo + " - Requisição " + ": " + String.format("%02d segundos  e %02d milisegundos", dif/60, dif%60));
 			}
 		}.start();
 	} 
